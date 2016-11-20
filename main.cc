@@ -20,10 +20,10 @@ po::options_description desc("Options");
 void print_help(bool error) {
     if (error) {
         std::cerr << "Usage: " << app_name << " [options] input-file" << std::endl;
-        std::cerr << desc << std::endl;
+        std::cerr << std::endl << desc << std::endl;
     } else {
         std::cout << "Usage: " << app_name << " [options] input-file" << std::endl;
-        std::cout << desc << std::endl;
+        std::cout << std::endl << desc << std::endl;
     }
 }
 
