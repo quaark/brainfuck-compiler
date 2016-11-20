@@ -11,6 +11,7 @@
 #include "bfc.h"
 #include "bfcompiler.h"
 
+// Private Methods:
 
 void BFC::gen_out_file_name() {
     std::string file_name = in_file.substr(0, in_file.find("."));
@@ -64,21 +65,28 @@ void BFC::assemble() {
 }
 
 
+// Public Methods:
+
+// Constructor:
 BFC::BFC(std::string in_file, bool assembly) 
     : in_file(in_file), tape_size(DEFAULT_TAPE_SIZE), assembly(assembly)  {
         gen_out_file_name();
     }
 
+// Constructor:
 BFC::BFC(std::string in_file, bool assembly, int tape_size)
     : in_file(in_file), tape_size(tape_size), assembly(assembly) {
         gen_out_file_name();
     }
 
+// Constructor:
 BFC::BFC(std::string in_file, bool assembly, std::string out_file)
     : in_file(in_file), out_file(out_file), tape_size(DEFAULT_TAPE_SIZE), assembly(assembly) { }
 
+// Constructor:
 BFC::BFC(std::string in_file, bool assembly, std::string out_file, int tape_size)
     : in_file(in_file), out_file(out_file), tape_size(tape_size), assembly(assembly) { }
+
 
 void BFC::run() {
     compile();

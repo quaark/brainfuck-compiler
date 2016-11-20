@@ -4,6 +4,8 @@
 #include <sstream>
 
 
+// Constants
+
 const std::string TEMPLATE_PART_ONE = 
     ".section    __TEXT,__text,regular,pure_instructions\n"
     "    .macosx_version_min 10, 12\n"
@@ -51,11 +53,7 @@ const std::string TEMPLATE_PART_THREE =
 const std::string TOKEN_DOC = "# ";
 
 
-BFCompiler::BFCompiler(std::string tokens) 
-    : cond_id(0), loop_id(0), tape_size(DEFAULT_TAPE_SIZE), tokens(tokens) { }
-
-BFCompiler::BFCompiler(std::string tokens, int tape_size) 
-    : cond_id(0), loop_id(0), tape_size(tape_size), tokens(tokens) { }
+// Private Methods:
 
 std::string BFCompiler::format_template(std::string content) {
     std::stringstream s;
@@ -208,6 +206,17 @@ std::string BFCompiler::compile_tokens() {
     }
     return compile_stream.str();
 }
+
+
+// Public Methods:
+
+// Constructor:
+BFCompiler::BFCompiler(std::string tokens) 
+    : cond_id(0), loop_id(0), tape_size(DEFAULT_TAPE_SIZE), tokens(tokens) { }
+
+// Constructor:
+BFCompiler::BFCompiler(std::string tokens, int tape_size) 
+    : cond_id(0), loop_id(0), tape_size(tape_size), tokens(tokens) { }
 
 std::string BFCompiler::compile() {
     return format_template(compile_tokens());
